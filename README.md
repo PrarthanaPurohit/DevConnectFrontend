@@ -10,6 +10,7 @@ A modern React-based frontend application for a developer networking platform bu
 - Connection requests management
 - View connections
 - Premium membership features
+- Real-time features with Socket.io
 - Responsive UI with DaisyUI components
 
 ## Tech Stack
@@ -19,6 +20,7 @@ A modern React-based frontend application for a developer networking platform bu
 - **Redux Toolkit** - State management
 - **React Router DOM** - Client-side routing
 - **Axios** - HTTP client
+- **Socket.io Client** - Real-time communication
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **DaisyUI** - Tailwind CSS component library
 
@@ -26,7 +28,7 @@ A modern React-based frontend application for a developer networking platform bu
 
 - Node.js (v16 or higher)
 - npm or yarn
-- Backend API running on `http://localhost:3000`
+- Backend API running on `http://localhost:3000` (for local development)
 
 ## Installation
 
@@ -41,11 +43,14 @@ cd devcfrontend
 npm install
 ```
 
-3. Configure API endpoint (if needed)
-Edit `src/utils/constants.js` to update the backend URL:
-```javascript
-export const BASE_URL = "http://localhost:3000";
-```
+3. Configure Environment
+   
+   The application is configured to automatically switch between localhost and production backends.
+   
+   - **Local Development**: Points to `http://localhost:3000`
+   - **Production**: Points to `https://devconnectbackend-aryy.onrender.com`
+
+   See `src/utils/constants.js` and `src/utils/socket.js` for configuration details.
 
 ## Available Scripts
 
@@ -73,6 +78,20 @@ npm run preview
 ```
 Preview the production build locally
 
+## Deployment
+
+### Vercel
+
+The project includes a `vercel.json` configuration file to handle client-side routing on Vercel.
+
+1. Install Vercel CLI or connect your repository to Vercel dashboard.
+2. Deploy:
+   ```bash
+   vercel
+   ```
+
+The `vercel.json` ensures all requests are rewritten to `index.html` so React Router can handle the paths.
+
 ## Project Structure
 
 ```
@@ -95,6 +114,7 @@ src/
 │   ├── feedSlice.js    # Feed state management
 │   ├── connectionSlice.jsx  # Connections state
 │   ├── requestSlice.js # Requests state
+│   ├── socket.js       # Socket.io connection logic
 │   └── constants.js    # App constants
 ├── App.jsx             # Main app component with routing
 ├── main.jsx            # App entry point
@@ -140,6 +160,3 @@ Redux Toolkit is used for global state management with the following slices:
 ## License
 
 This project is private and not licensed for public use.
-=======
-
-
