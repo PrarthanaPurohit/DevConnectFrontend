@@ -1,6 +1,11 @@
 # DevConnect Frontend
 
-A modern React-based frontend application for a developer networking platform built with Vite, React, Redux Toolkit, and Tailwind CSS.
+A modern React-based frontend application for a developer networking platform built with Vite, React, Redux Toolkit, Daisy UI and Tailwind CSS.
+
+## Deploy URL
+
+Frontend: https://dev-connect-frontend-theta.vercel.app/login  
+Backend: https://devconnectbackend-aryy.onrender.com
 
 ## Features
 
