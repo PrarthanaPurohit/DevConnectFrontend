@@ -7,6 +7,11 @@ A modern React-based frontend application for a developer networking platform bu
 Frontend: https://dev-connect-frontend-theta.vercel.app/login  
 Backend: https://devconnectbackend-aryy.onrender.com
 
+
+## Demo
+https://github.com/user-attachments/assets/e35c6789-4ee4-4860-987e-cfe7c2a2c711
+
+
 ## Features
 
 - User authentication (Login/Signup)
