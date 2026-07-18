@@ -41,65 +41,67 @@ const NavBar = () => {
 
   {/* Header Links */}
   <div className="flex items-center gap-6">
-    <Link
-      to="/connections"
-      className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
-    >
-      Connections
-    </Link>
-
-    <Link
-      to="/requests"
-      className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
-    >
-      Requests
-    </Link>
-
-    {/* Profile Dropdown */}
+    {/* Profile Dropdown - only shown when logged in */}
     {user && (
-      <div className="dropdown dropdown-end ml-2">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost btn-circle avatar"
+      <>
+        <Link
+          to="/connections"
+          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
         >
-          <div className="w-10 rounded-full">
-            <img src={user.photoUrl} alt="user" />
+          Connections
+        </Link>
+
+        <Link
+          to="/requests"
+          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
+        >
+          Requests
+        </Link>
+
+        <div className="dropdown dropdown-end ml-2">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img src={user.photoUrl} alt="user" />
+            </div>
           </div>
+
+          <ul
+            tabIndex={0}
+            className="
+              dropdown-content mt-3 w-48 p-2
+              bg-white/90 backdrop-blur-xl
+              rounded-xl shadow-xl
+              border border-emerald-900/10
+              text-[#0f2a23]
+            "
+          >
+            <li>
+              <Link to="/profile" className="rounded-lg hover:bg-emerald-100">
+                Edit Profile
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/premium" className="rounded-lg hover:bg-emerald-100">
+                Premium
+              </Link>
+            </li>
+
+            <li>
+              <button
+                onClick={handleLogout}
+                className="text-red-600 hover:bg-red-50 rounded-lg"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
         </div>
-
-        <ul
-          tabIndex={0}
-          className="
-            dropdown-content mt-3 w-48 p-2
-            bg-white/90 backdrop-blur-xl
-            rounded-xl shadow-xl
-            border border-emerald-900/10
-            text-[#0f2a23]
-          "
-        >
-          <li>
-            <Link to="/profile" className="rounded-lg hover:bg-emerald-100">
-              Edit Profile
-            </Link>
-          </li>
-
-          <li>
-            <Link to="/premium" className="rounded-lg hover:bg-emerald-100">
-              Premium
-            </Link>
-          </li>
-
-          <li>
-            <button
-              onClick={handleLogout}
-              className="text-red-600 hover:bg-red-50 rounded-lg"
-            >
-              Logout
-            </button>
-          </li>
-        </ul>
-      </div>
+      </>
     )}
   </div>
 </div>
