@@ -5,14 +5,14 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="  w-full mt-24 h-[72px] pb-[72px]
+    <footer className="  w-full mt-24 max-md:mt-12 h-[72px] pb-[72px]
 
         bg-base-300
         backdrop-blur-xl
         border-t border-white/10
         text-[#cbd5d1]
       ">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 max-md:px-4 py-3 flex items-center justify-between">
 
         {/* Brand */}
         <div className="flex items-center gap-3">

@@ -78,7 +78,13 @@ const Chat = () => {
 
   /* ---------------- AUTO SCROLL ---------------- */
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // On phones the chat fills the screen, so only scroll the message list
+    // ("nearest") and leave the page itself where it is. Desktop keeps the default.
+    const isPhone = window.matchMedia("(max-width: 767px)").matches;
+    bottomRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: isPhone ? "nearest" : "start",
+    });
   }, [messages]);
 
   /* ---------------- SEND MESSAGE ---------------- */
@@ -100,8 +106,8 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex justify-center my-10">
-      <div className="w-full max-w-2xl card bg-base-300 shadow-xl">
+    <div className="flex justify-center my-10 max-md:my-0">
+      <div className="w-full max-w-2xl card bg-base-300 shadow-xl max-md:rounded-none max-md:h-[calc(100dvh-4rem)]">
 
         {/* ---------- HEADER ---------- */}
         <div className="flex items-center gap-4 p-4 border-b bg-base-200">
@@ -116,12 +122,12 @@ const Chat = () => {
         </div>
 
         {/* ---------- MESSAGES ---------- */}
-        <div className="p-4 h-96 overflow-y-auto space-y-3">
+        <div className="p-4 h-96 overflow-y-auto space-y-3 max-md:h-auto max-md:flex-1 max-md:min-h-0 max-md:px-3 max-md:overscroll-contain">
 
           {hasMore && (
             <button
               onClick={loadOlderMessages}
-              className="btn btn-xs btn-outline w-full mb-2"
+              className="btn btn-xs btn-outline w-full mb-2 max-md:h-10"
             >
               Load older messages
             </button>
@@ -136,7 +142,7 @@ const Chat = () => {
                 className={`flex ${isOwn ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-xs px-4 py-2 rounded-2xl shadow ${
+                  className={`max-w-xs max-md:max-w-[85%] max-md:[overflow-wrap:anywhere] px-4 py-2 rounded-2xl shadow ${
                     isOwn
                       ? "bg-primary text-white rounded-br-none"
                       : "bg-base-200 rounded-bl-none"
@@ -157,14 +163,14 @@ const Chat = () => {
         </div>
 
         {/* ---------- INPUT ---------- */}
-        <div className="p-4 flex gap-2 border-t">
+        <div className="p-4 flex gap-2 border-t max-md:p-3">
           <input
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full max-md:h-11 max-md:text-base"
             placeholder="Type a message..."
           />
-          <button onClick={sendMessage} className="btn btn-primary">
+          <button onClick={sendMessage} className="btn btn-primary max-md:h-11">
             Send
           </button>
         </div>

@@ -35,12 +35,12 @@ const Requests = () => {
   }, []);
 
   if (requests.length === 0) {
-    return <h1>No request found</h1>;
+    return <h1 className="max-md:p-4">No request found</h1>;
   }
-  if (!requests) return <h1>Loading...</h1>;
+  if (!requests) return <h1 className="max-md:p-4">Loading...</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center my-10 max-md:my-6 max-md:px-4">
       <h1 className="text-2xl text-bold">Pending requests</h1>
 
       {requests.map((req) => {
@@ -50,35 +50,35 @@ const Requests = () => {
           <div key={req._id} className="w-full max-w-xl mx-auto my-4">
             <div className="card bg-base-300 shadow-md">
               <div className="card-body p-4">
-                <div className="flex justify-between items-center gap-2">
+                <div className="flex justify-between items-center gap-2 max-md:flex-wrap max-md:justify-start max-md:gap-x-4 max-md:gap-y-3">
                   {/* Profile photo */}
                   <img
                     src={photoUrl}
                     alt="profile"
-                    className="w-16 h-16 mx-2 rounded-full object-cover"
+                    className="w-16 h-16 mx-2 rounded-full object-cover max-md:mx-0 max-md:shrink-0"
                   />
         
                   {/* User info */}
-                  <div className="flex flex-col">
+                  <div className="flex flex-col max-md:flex-1 max-md:min-w-0 max-md:text-left">
                     <h2 className="text-lg font-semibold">
                       {firstName} {lastName}
                     </h2>
                     <p className="text-sm opacity-70">
                       {gender}, {age}
                     </p>
-                    <p className="text-sm opacity-70">{about}</p>
+                    <p className="text-sm opacity-70 max-md:line-clamp-3">{about}</p>
                   </div>
 
-                  <div className="">
+                  <div className="max-md:flex max-md:w-full max-md:gap-3">
                     <button 
                     onClick={() => reviewRequest("accepted", req._id)}  //this id is not user id, this is connection request id
-                    className="btn btn-soft btn-success mx-2">
+                    className="btn btn-soft btn-success mx-2 max-md:mx-0 max-md:flex-1 max-md:h-11">
                       Accept
                     </button>
                     
                     <button 
                     onClick={() => reviewRequest("rejected", req._id)}
-                    className="btn btn-soft btn-error mx-2">Reject</button>
+                    className="btn btn-soft btn-error mx-2 max-md:mx-0 max-md:flex-1 max-md:h-11">Reject</button>
                   </div>
                   </div>
                 </div>

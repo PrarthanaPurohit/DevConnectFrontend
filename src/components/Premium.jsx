@@ -2,13 +2,13 @@ import React from "react";
 
 const Premium = () => {
 return (
-  <div className="w-full flex justify-center mt-24 px-6">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl">
+  <div className="w-full flex justify-center mt-24 max-md:mt-8 px-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-md:gap-6 w-full max-w-5xl">
 
       {/* Silver Membership */}
       <div
         className="
-          relative rounded-3xl p-8
+          relative rounded-3xl p-8 max-md:p-6
           bg-[#777c85] backdrop-blur-xl
           border border-black/10
           shadow-[0_30px_80px_rgba(0,0,0,0.25)]
@@ -33,7 +33,7 @@ return (
         <div className="flex justify-center mt-8">
           <button
             className="
-              px-6 py-2 rounded-xl
+              px-6 py-2 max-md:px-8 max-md:py-3 rounded-xl
               bg-[#020617]
               text-white
               hover:bg-[#0d1c40]
@@ -49,7 +49,7 @@ return (
       {/* Gold Membership */}
       <div
         className="
-          relative rounded-3xl p-8
+          relative rounded-3xl p-8 max-md:p-6
           bg-[#171e3e]
           border border-white/10
           shadow-[0_35px_90px_rgba(0,0,0,0.6)]
@@ -78,7 +78,7 @@ return (
         <div className="flex justify-center mt-8 relative">
           <button
             className="
-              px-6 py-2 rounded-xl
+              px-6 py-2 max-md:px-8 max-md:py-3 rounded-xl
               bg-[#e3ba3369] text-[#020617]
               font-medium
               hover:bg-[#c49213]
