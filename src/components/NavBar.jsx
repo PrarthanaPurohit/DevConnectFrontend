@@ -28,37 +28,37 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar px-6 max-md:px-3 bg-white/5 backdrop-blur-xl border-b border-white/10">
+    <div className="navbar px-6 bg-white/5 backdrop-blur-xl border-b border-white/10">
   {/* Logo */}
-  <div className="flex-1 max-md:min-w-0">
+  <div className="flex-1">
     <Link
       to="/"
-      className="text-xl max-md:text-lg font-semibold text-[#f4f7f6] hover:text-emerald-300 transition max-md:inline-block max-md:py-2"
+      className="text-xl font-semibold text-[#f4f7f6] hover:text-emerald-300 transition"
     >
       DevConnect
     </Link>
   </div>
 
   {/* Header Links */}
-  <div className="flex items-center gap-6 max-md:gap-1">
+  <div className="flex items-center gap-6">
     {/* Profile Dropdown - only shown when logged in */}
     {user && (
       <>
         <Link
           to="/connections"
-          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition max-md:text-sm max-md:px-2 max-md:py-2.5"
+          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
         >
           Connections
         </Link>
 
         <Link
           to="/requests"
-          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition max-md:text-sm max-md:px-2 max-md:py-2.5"
+          className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
         >
           Requests
         </Link>
 
-        <div className="dropdown dropdown-end ml-2 max-md:ml-0">
+        <div className="dropdown dropdown-end ml-2">
           <div
             tabIndex={0}
             role="button"
@@ -80,13 +80,13 @@ const NavBar = () => {
             "
           >
             <li>
-              <Link to="/profile" className="rounded-lg hover:bg-emerald-100 max-md:block max-md:px-3 max-md:py-2.5">
+              <Link to="/profile" className="rounded-lg hover:bg-emerald-100">
                 Edit Profile
               </Link>
             </li>
 
             <li>
-              <Link to="/premium" className="rounded-lg hover:bg-emerald-100 max-md:block max-md:px-3 max-md:py-2.5">
+              <Link to="/premium" className="rounded-lg hover:bg-emerald-100">
                 Premium
               </Link>
             </li>
@@ -94,7 +94,7 @@ const NavBar = () => {
             <li>
               <button
                 onClick={handleLogout}
-                className="text-red-600 hover:bg-red-50 rounded-lg max-md:block max-md:w-full max-md:text-left max-md:px-3 max-md:py-2.5"
+                className="text-red-600 hover:bg-red-50 rounded-lg"
               >
                 Logout
               </button>

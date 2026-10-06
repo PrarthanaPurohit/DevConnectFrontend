@@ -20,13 +20,13 @@ const UserCard = ({ user }) => {
     }
   }
 return (
-  <div className="hover-3d flex justify-center m-10 max-md:m-4">
+  <div className="hover-3d flex justify-center m-10">
     <div
       className="
-        hover-3d w-96 h-130 max-md:w-full max-md:max-w-96 max-md:h-auto
+        hover-3d w-96 h-130
         bg-white/95
         backdrop-blur-xl
-        p-4 max-md:pb-9
+        p-4
         rounded-3xl
         shadow-[0_25px_60px_rgba(0,0,0,0.25)]
         flex flex-col
@@ -39,7 +39,7 @@ return (
         <img
           src={photoUrl}
           alt={firstName}
-          className="w-full h-60 max-md:h-64 object-cover"
+          className="w-full h-60 object-cover"
         />
       </figure>
 
@@ -48,7 +48,7 @@ return (
       <div></div><div></div><div></div><div></div>
 
       {/* Content */}
-      <div className="space-y-2 px-8 max-md:px-7 py-2 mt-2 max-md:mt-5 flex flex-col flex-1">
+      <div className="space-y-2 px-8 py-2 mt-2 flex flex-col flex-1">
         {/* 👆 padding restored */}
 
         <h2 className="text-xl font-semibold">

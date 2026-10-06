@@ -45,11 +45,11 @@ const EditProfile = ({ user }) => {
 
   return (
     <>
-      <div className="flex justify-center max-md:flex-col">
-        <div className="flex justify-center m-4 p-6 max-md:m-0 max-md:p-4">
+      <div className="flex justify-center">
+        <div className="flex justify-center m-4 p-6">
           <fieldset
             className="
-            w-xs p-6 max-md:w-full max-md:max-w-sm max-md:p-5
+            w-xs p-6
             rounded-3xl
             bg-white/90
             backdrop-blur-xl
@@ -65,7 +65,7 @@ const EditProfile = ({ user }) => {
               type="text"
               value={firstName}
               className="
-              input w-full max-md:h-11 max-md:text-base
+              input w-full
               bg-[#f8fafc]
               border border-slate-300
               text-slate-800
@@ -82,7 +82,7 @@ const EditProfile = ({ user }) => {
               type="text"
               value={lastName}
               className="
-              input w-full max-md:h-11 max-md:text-base
+              input w-full
               bg-[#f8fafc]
               border border-slate-300
               text-slate-800
@@ -99,7 +99,7 @@ const EditProfile = ({ user }) => {
               value={about}
               placeholder="About"
               className="
-              textarea w-full resize-none max-md:text-base
+              textarea w-full resize-none
               bg-[#f8fafc]
               border border-slate-300
               text-slate-800
@@ -118,7 +118,7 @@ const EditProfile = ({ user }) => {
               }}
             />
 
-            <label className="label max-md:flex text-sm font-medium text-slate-700 ">
+            <label className="label text-sm font-medium text-slate-700 ">
               Gender
             </label>
             <div className="join py-1.5 ">
@@ -126,7 +126,7 @@ const EditProfile = ({ user }) => {
                 <input
                   key={g}
                   className="
-                  join-item btn max-md:h-11
+                  join-item btn
                   bg-[#f8fafc] rounded-xl 
                   border border-slate-300
                   text-slate-700
@@ -143,14 +143,14 @@ const EditProfile = ({ user }) => {
               ))}
             </div>
 
-            <label className="label max-md:flex text-sm font-medium text-slate-700">
+            <label className="label text-sm font-medium text-slate-700">
               Age
             </label>
             <input
               type="text"
               value={age}
               className="
-              input w-full max-md:h-11 max-md:text-base
+              input w-full
               bg-[#f8fafc]
               border border-slate-300
               text-slate-800
@@ -167,7 +167,7 @@ const EditProfile = ({ user }) => {
               type="text"
               value={photoUrl}
               className="
-              input w-full max-md:h-11 max-md:text-base
+              input w-full
               bg-[#f8fafc]
               border border-slate-300
               text-slate-800
@@ -182,7 +182,7 @@ const EditProfile = ({ user }) => {
             <button
               onClick={saveProfile}
               className="
-              mt-4 w-full py-2 max-md:py-3
+              mt-4 w-full py-2
               rounded-xl
               bg-[#2c2d30]
               text-white
