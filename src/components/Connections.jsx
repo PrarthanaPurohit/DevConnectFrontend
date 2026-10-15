@@ -33,7 +33,7 @@ const Connections = () => {
   }
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center my-10 px-4">
       <h1 className="text-2xl text-bold">Connections</h1>
 
       {connections.map((connection) => {
@@ -46,7 +46,7 @@ const Connections = () => {
     </button> </Link>
 
     <div className="card-body p-4">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 pr-16">
         
         {/* Profile photo */}
         <img

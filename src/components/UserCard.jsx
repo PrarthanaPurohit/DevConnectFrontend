@@ -20,10 +20,10 @@ const UserCard = ({ user }) => {
     }
   }
 return (
-  <div className="hover-3d flex justify-center m-10">
+  <div className="hover-3d flex justify-center m-4 sm:m-10">
     <div
       className="
-        hover-3d w-96 h-130
+        hover-3d w-full sm:w-96 h-130
         bg-white/95
         backdrop-blur-xl
         p-4
@@ -48,7 +48,7 @@ return (
       <div></div><div></div><div></div><div></div>
 
       {/* Content */}
-      <div className="space-y-2 px-8 py-2 mt-2 flex flex-col flex-1">
+      <div className="space-y-2 px-4 sm:px-8 py-2 mt-2 flex flex-col flex-1">
         {/* 👆 padding restored */}
 
         <h2 className="text-xl font-semibold">

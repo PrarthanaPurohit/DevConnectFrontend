@@ -100,7 +100,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex justify-center my-10">
+    <div className="flex justify-center my-4 sm:my-10 px-2">
       <div className="w-full max-w-2xl card bg-base-300 shadow-xl">
 
         {/* ---------- HEADER ---------- */}
@@ -116,7 +116,7 @@ const Chat = () => {
         </div>
 
         {/* ---------- MESSAGES ---------- */}
-        <div className="p-4 h-96 overflow-y-auto space-y-3">
+        <div className="p-4 h-[60vh] sm:h-96 overflow-y-auto space-y-3">
 
           {hasMore && (
             <button

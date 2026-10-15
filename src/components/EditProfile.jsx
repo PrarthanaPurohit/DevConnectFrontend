@@ -45,11 +45,11 @@ const EditProfile = ({ user }) => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="flex justify-center m-4 p-6">
+      <div className="flex flex-col md:flex-row justify-center">
+        <div className="flex justify-center m-4 p-0 sm:p-6">
           <fieldset
             className="
-            w-xs p-6
+            w-full max-w-xs p-6
             rounded-3xl
             bg-white/90
             backdrop-blur-xl

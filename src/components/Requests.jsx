@@ -40,7 +40,7 @@ const Requests = () => {
   if (!requests) return <h1>Loading...</h1>;
 
   return (
-    <div className="text-center my-10">
+    <div className="text-center my-10 px-4">
       <h1 className="text-2xl text-bold">Pending requests</h1>
 
       {requests.map((req) => {
@@ -50,7 +50,7 @@ const Requests = () => {
           <div key={req._id} className="w-full max-w-xl mx-auto my-4">
             <div className="card bg-base-300 shadow-md">
               <div className="card-body p-4">
-                <div className="flex justify-between items-center gap-2">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
                   {/* Profile photo */}
                   <img
                     src={photoUrl}
