@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { removeUser } from "../utils/userSlice";
+import { addFeed } from "../utils/feedSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 const NavBar = () => {
@@ -19,6 +20,7 @@ const NavBar = () => {
       await axios.post(BASE_URL + "/logout", {}, {withCredentials: true}) //token gone
       //clear redux store
       dispatch(removeUser());
+      dispatch(addFeed(null)); //so next login doesn't see the old user's feed
       //redirect to login
       navigate("/login")
 
@@ -28,22 +30,32 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar px-3 sm:px-6 bg-white/5 backdrop-blur-xl border-b border-white/10">
+    <div className="navbar relative z-50 px-3 sm:px-6 bg-white/5 backdrop-blur-xl border-b border-white/10">
   {/* Logo */}
   <div className="flex-1">
     <Link
       to="/"
-      className="text-xl font-semibold text-[#f4f7f6] hover:text-emerald-300 transition"
+      className="text-lg sm:text-xl font-semibold text-[#f4f7f6] hover:text-emerald-300 transition"
     >
       DevConnect
     </Link>
   </div>
 
   {/* Header Links */}
-  <div className="flex items-center gap-3 sm:gap-6 text-sm sm:text-base">
+  <div className="flex items-center gap-2 sm:gap-6 text-sm sm:text-base">
     {/* Profile Dropdown - only shown when logged in */}
     {user && (
       <>
+        <Link
+          to="/"
+          className="flex items-center gap-1 text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
+        >
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" />
+          </svg>
+          <span className="hidden sm:inline">Home</span>
+        </Link>
+
         <Link
           to="/connections"
           className="text-[#cbd5d1] hover:text-emerald-300 font-medium transition"
@@ -72,7 +84,7 @@ const NavBar = () => {
           <ul
             tabIndex={0}
             className="
-              dropdown-content mt-3 w-48 p-2
+              dropdown-content menu mt-3 w-48 p-2
               bg-white/90 backdrop-blur-xl
               rounded-xl shadow-xl
               border border-emerald-900/10

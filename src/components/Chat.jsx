@@ -77,9 +77,11 @@ const Chat = () => {
   }, [userId, targetUserId]);
 
   /* ---------------- AUTO SCROLL ---------------- */
+  //only when a new message arrives at the bottom, not when older ones load
+  const lastMessage = messages[messages.length - 1];
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [lastMessage]);
 
   /* ---------------- SEND MESSAGE ---------------- */
   const sendMessage = () => {
@@ -127,12 +129,12 @@ const Chat = () => {
             </button>
           )}
 
-          {messages.map((msg) => {
+          {messages.map((msg, index) => {
             const isOwn = msg.senderId === userId;
 
             return (
               <div
-                key={msg._id}
+                key={msg._id || index} //socket messages have no _id
                 className={`flex ${isOwn ? "justify-end" : "justify-start"}`}
               >
                 <div

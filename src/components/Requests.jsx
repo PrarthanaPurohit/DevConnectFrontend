@@ -11,7 +11,7 @@ const Requests = () => {
   //accept or reject request
   const reviewRequest = async (status, id) => {
     try{
-        const res = axios.post(BASE_URL + "/request/review/" + status + "/" + id, {}, {withCredentials: true});
+        await axios.post(BASE_URL + "/request/review/" + status + "/" + id, {}, {withCredentials: true});
         dispatch(removeRequest(id));  //clear reviewed req from page
     }catch(err){
         console.log(err);
@@ -34,10 +34,10 @@ const Requests = () => {
     fetchRequests();
   }, []);
 
+  if (!requests) return <h1>Loading...</h1>;
   if (requests.length === 0) {
     return <h1>No request found</h1>;
   }
-  if (!requests) return <h1>Loading...</h1>;
 
   return (
     <div className="text-center my-10 px-4">
